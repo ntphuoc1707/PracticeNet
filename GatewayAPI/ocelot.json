@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/home/{action}",
+      "DownstreamPathTemplate": "/authen/{controller}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -9,11 +9,11 @@
           "Port": 1112
         }
       ],
-      "UpstreamPathTemplate": "/homegw/{action}",
+      "UpstreamPathTemplate": "/authen/{controller}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
     },
     {
-      "DownstreamPathTemplate": "/payment/{action}",
+      "DownstreamPathTemplate": "/user/{controller}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -21,7 +21,7 @@
           "Port": 2223
         }
       ],
-      "UpstreamPathTemplate": "/paymentgw/{action}",
+      "UpstreamPathTemplate": "/user/{controller}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
     }
   ],
