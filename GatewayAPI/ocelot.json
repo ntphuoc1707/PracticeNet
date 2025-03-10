@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/authen/{controller}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1112
+          "Port": 1111
         }
       ],
       "UpstreamPathTemplate": "/authen/{controller}",
@@ -14,11 +14,11 @@
     },
     {
       "DownstreamPathTemplate": "/user/{controller}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 2223
+          "Port": 2222
         }
       ],
       "UpstreamPathTemplate": "/user/{controller}",

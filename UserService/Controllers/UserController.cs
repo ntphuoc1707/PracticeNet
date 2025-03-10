@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DB;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UserService.Controllers
@@ -7,6 +8,7 @@ namespace UserService.Controllers
     [ApiController]
     public class UserController : Controller
     {
+
         [HttpGet(Name = "User")]
         public String Authenticate()
         {
