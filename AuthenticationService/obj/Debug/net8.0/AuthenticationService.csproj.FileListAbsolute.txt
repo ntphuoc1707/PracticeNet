@@ -87,3 +87,11 @@ D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\runtimes\browser\
 D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\DB.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\DB.pdb
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\UserService.deps.json
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\UserService.runtimeconfig.json
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\UserService.exe
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Common.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\UserService.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\UserService.pdb
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Common.pdb
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

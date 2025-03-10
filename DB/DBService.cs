@@ -13,8 +13,9 @@ namespace DB
         private AppDbContext appDbContext;
         public DBService()
         {
-            DropDatabase();
             appDbContext = new AppDbContext();
+            //DropDatabase();
+            //CreateDatabase();
         }
         private void CreateDatabase()
         {

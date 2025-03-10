@@ -1,22 +1,18 @@
 [
   {
     "ContainingType": "UserService.Controllers.UserController",
-    "Method": "Authenticate",
-    "RelativePath": "user/User",
-    "HttpMethod": "GET",
+    "Method": "AddUser",
+    "RelativePath": "user/AddUser",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "userCreateModel",
+        "Type": "DB.Model.UserCreateModel",
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
   }
 ]

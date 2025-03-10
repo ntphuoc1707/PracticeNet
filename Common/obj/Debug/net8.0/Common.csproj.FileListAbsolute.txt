@@ -1,0 +1,12 @@
+D:\ChoiChoi\PracticeNet\Common\bin\Debug\net8.0\Common.deps.json
+D:\ChoiChoi\PracticeNet\Common\bin\Debug\net8.0\Common.dll
+D:\ChoiChoi\PracticeNet\Common\bin\Debug\net8.0\Common.pdb
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.AssemblyInfoInputs.cache
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.AssemblyInfo.cs
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.csproj.CoreCompileInputs.cache
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.sourcelink.json
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.dll
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\refint\Common.dll
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\Common.pdb
+D:\ChoiChoi\PracticeNet\Common\obj\Debug\net8.0\ref\Common.dll
