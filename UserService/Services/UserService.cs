@@ -2,6 +2,7 @@
 using DB.DAO;
 using DB.Entities;
 using DB.Model;
+using MessageQueue;
 using Utility;
 
 namespace UserService.Services
@@ -9,6 +10,13 @@ namespace UserService.Services
     public class UserService
     {
         private UserDAO _userDAO = new UserDAO();
+
+        private readonly IRabbitMQPublisher<object> _rabbitMqPublisher;
+
+        public UserService(IRabbitMQPublisher<object> rabbitMqPublisher)
+        {
+            _rabbitMqPublisher = rabbitMqPublisher;
+        }
 
         public int AddUser(UserCreateModel userCreateModel)
         {

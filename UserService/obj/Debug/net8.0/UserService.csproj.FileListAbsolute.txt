@@ -90,3 +90,10 @@ D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\ref\UserService.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.pdb
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.Abstractions.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.pdb

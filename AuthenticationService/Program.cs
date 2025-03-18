@@ -1,7 +1,10 @@
+using MessageQueue;
+
 var builder = WebApplication.CreateBuilder(args);
-
+IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 // Add services to the container.
-
+builder.Services.Configure<RabbitMQSetting>(config.GetSection("RabbitMQ"));
+builder.Services.AddSingleton(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

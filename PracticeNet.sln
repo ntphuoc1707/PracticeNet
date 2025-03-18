@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB", "DB\DB.csproj", "{9CAB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{239AC471-126A-4028-ABF3-57494560428A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{058F03FE-D27D-4125-B5A3-F80E7E77894E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{058F03FE-D27D-4125-B5A3-F80E7E77894E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{208639CC-3E58-489D-ACBB-63AC54BE9180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueue", "MessageQueue\MessageQueue.csproj", "{61221310-B556-4D1A-A23E-60EA4605CF62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{058F03FE-D27D-4125-B5A3-F80E7E77894E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058F03FE-D27D-4125-B5A3-F80E7E77894E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058F03FE-D27D-4125-B5A3-F80E7E77894E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61221310-B556-4D1A-A23E-60EA4605CF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61221310-B556-4D1A-A23E-60EA4605CF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61221310-B556-4D1A-A23E-60EA4605CF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61221310-B556-4D1A-A23E-60EA4605CF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
