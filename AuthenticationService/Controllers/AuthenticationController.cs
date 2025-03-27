@@ -4,10 +4,10 @@ using DB.Model;
 using MessageQueue;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using UserService.Services;
 using Utility;
 
 namespace AuthenticationService.Controllers
@@ -32,17 +32,17 @@ namespace AuthenticationService.Controllers
         [HttpPost(Name ="Login")]
         public async Task<IActionResult> Login(UserCreateModel userCreateModel)
         {
-            await authenticationServicePublisher.PublishMessageAsyncWithQueue(userCreateModel, RabbitMQQueues.UserServiceQueue);
-            return Ok();
-            //User user = _userService.FindUserByUsernameAndPassword(userCreateModel.UserName, Common.HashData(userCreateModel.Password));
-            //if(user == null)
-            //{
-            //    return StatusCode(500, "Username or password is wrong");
-            //}
-            //else
-            //{
-            //    return Ok(new { Token = GenerateJwtToken(user.UserID) });
-            //}
+            userCreateModel.Password = Common.HashData(userCreateModel.Password);
+            var result=await authenticationServicePublisher.PublishMessageAsyncWithQueue(userCreateModel, RabbitMQQueues.UserServiceQueue, "FindUserByUserCreateModel");
+            User user = JsonConvert.DeserializeObject<User>(result);
+            if (user == null)
+            {
+                return StatusCode(500, "Username or password is wrong");
+            }
+            else
+            {
+                return Ok(new { Token = GenerateJwtToken(user.UserID) });
+            }
         }
 
         private string GenerateJwtToken(string username)

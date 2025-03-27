@@ -7,6 +7,10 @@ D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\UserService.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\UserService.pdb
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Azure.Core.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Azure.Identity.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.Abstractions.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
@@ -33,6 +37,8 @@ D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.IdentityModel.Tok
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\RabbitMQ.Client.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -63,8 +69,12 @@ D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\lib\net6.0\Sys
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\DB.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.dll
 D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\DB.pdb
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.pdb
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.pdb
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.csproj.AssemblyReference.cache
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.GeneratedMSBuildEditorConfig.editorconfig
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.AssemblyInfoInputs.cache
@@ -87,13 +97,3 @@ D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\refint\UserService.dll
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.pdb
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.genruntimeconfig.cache
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\ref\UserService.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Common.pdb
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.Abstractions.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\RabbitMQ.Client.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.dll
-D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\MessageQueue.pdb

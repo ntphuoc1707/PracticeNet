@@ -11,3 +11,6 @@ D:\ChoiChoi\PracticeNet\DB\obj\Release\net8.0\DB.dll
 D:\ChoiChoi\PracticeNet\DB\obj\Release\net8.0\refint\DB.dll
 D:\ChoiChoi\PracticeNet\DB\obj\Release\net8.0\DB.pdb
 D:\ChoiChoi\PracticeNet\DB\obj\Release\net8.0\ref\DB.dll
+D:\ChoiChoi\PracticeNet\DB\bin\Release\net8.0\Common.dll
+D:\ChoiChoi\PracticeNet\DB\bin\Release\net8.0\Common.pdb
+D:\ChoiChoi\PracticeNet\DB\obj\Release\net8.0\DB.csproj.Up2Date

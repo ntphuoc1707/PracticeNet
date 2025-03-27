@@ -18,6 +18,10 @@ namespace UserService.Services
             _rabbitMqPublisher = rabbitMqPublisher;
         }
 
+        public UserService()
+        {
+        }
+
         public int AddUser(UserCreateModel userCreateModel)
         {
             if (_userDAO.FindUserByUsername(userCreateModel.UserName) != null)
@@ -49,6 +53,10 @@ namespace UserService.Services
         public User FindUserByUsernameAndPassword(string username, string password)
         {
             return _userDAO.FindUserByUsernameAndPassword(username,password);
+        }
+        public User FindUserByUserCreateModel(UserCreateModel user)
+        {
+            return _userDAO.FindUserByUsernameAndPassword(user.UserName, user.Password);
         }
     }
 }

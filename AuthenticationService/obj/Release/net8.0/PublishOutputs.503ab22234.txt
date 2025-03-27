@@ -7,6 +7,7 @@ D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Auth
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\AuthenticationService.pdb
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
@@ -33,6 +34,8 @@ D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Micr
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\RabbitMQ.Client.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -63,5 +66,9 @@ D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\runt
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Common.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\DB.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\MessageQueue.dll
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\DB.pdb
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\MessageQueue.pdb
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Release\net8.0\PubTmp\Out\Common.pdb

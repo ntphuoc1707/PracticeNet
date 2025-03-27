@@ -87,3 +87,13 @@ D:\ChoiChoi\PracticeNet\UserService\obj\Release\net8.0\refint\UserService.dll
 D:\ChoiChoi\PracticeNet\UserService\obj\Release\net8.0\UserService.pdb
 D:\ChoiChoi\PracticeNet\UserService\obj\Release\net8.0\UserService.genruntimeconfig.cache
 D:\ChoiChoi\PracticeNet\UserService\obj\Release\net8.0\ref\UserService.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\MassTransit.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\MassTransit.Abstractions.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\MassTransit.RabbitMqTransport.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\Newtonsoft.Json.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\RabbitMQ.Client.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\Common.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\MessageQueue.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\MessageQueue.pdb
+D:\ChoiChoi\PracticeNet\UserService\bin\Release\net8.0\Common.pdb

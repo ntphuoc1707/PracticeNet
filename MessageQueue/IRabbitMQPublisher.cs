@@ -9,7 +9,7 @@ namespace MessageQueue
     public interface IRabbitMQPublisher<T>
     {
         Task PublishMessageAsync(T message);
-        Task PublishMessageAsyncWithQueue(T message, string queueName);
+        Task<string> PublishMessageAsyncWithQueue(T message, string queueName, string funcName);
 
     }
 }

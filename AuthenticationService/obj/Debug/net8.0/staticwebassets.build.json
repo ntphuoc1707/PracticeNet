@@ -1,23 +1,11 @@
 {
   "Version": 1,
-  "Hash": "lK5WoyhAfrGtzxqbOgT0F0L9K0SdOzv0WQjl+npoY2o=",
+  "Hash": "fbH5jZ2ilblg2SL4T8txl/7QutWJPFRraWStmfP57is=",
   "Source": "AuthenticationService",
   "BasePath": "_content/AuthenticationService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "D:\\ChoiChoi\\PracticeNet\\UserService\\UserService.csproj",
-      "Version": 2,
-      "Source": "UserService",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": []
 }

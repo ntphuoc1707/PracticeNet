@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UserService.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("~/user/[action]")]
     [ApiController]
     public class UserController : Controller
@@ -36,6 +36,17 @@ namespace UserService.Controllers
                 return StatusCode(500, "Username is existed");
             }
             return Ok("Add user successfully");
+        }
+
+        [HttpGet("{id}",Name ="GetUsers")]
+        public ActionResult GetUser([FromRoute]int id)
+        {
+            var result = _userService.FindUserById(id);
+            if (result == null)
+            {
+                return StatusCode(500, "User is not existed");
+            }
+            else return StatusCode(200, result);
         }
     }
 }

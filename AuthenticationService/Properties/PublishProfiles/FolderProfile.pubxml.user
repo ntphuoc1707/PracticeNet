@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>D:\ChoiChoi\PracticeNet\Published\PracticeNet_AuthenticationService</_PublishTargetUrl>
-    <History>True|2025-03-10T06:17:59.9844814Z;True|2025-03-10T13:16:47.9702887+07:00;True|2025-03-10T13:15:56.7958857+07:00;</History>
+    <_PublishTargetUrl>D:\ChoiChoi\PracticeNet\Published\PracticeNet_AuthenticationService\publish</_PublishTargetUrl>
+    <History>True|2025-03-24T09:38:12.0593178Z;True|2025-03-24T16:36:48.5711155+07:00;False|2025-03-24T16:33:06.9034834+07:00;True|2025-03-24T16:30:48.6587423+07:00;False|2025-03-24T16:29:27.8598984+07:00;True|2025-03-24T16:12:42.5704927+07:00;True|2025-03-24T16:11:38.5933573+07:00;False|2025-03-24T16:05:32.6417446+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
