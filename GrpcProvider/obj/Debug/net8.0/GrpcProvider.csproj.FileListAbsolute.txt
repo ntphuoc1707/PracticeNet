@@ -1,0 +1,13 @@
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.csproj.AssemblyReference.cache
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.GeneratedMSBuildEditorConfig.editorconfig
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.AssemblyInfoInputs.cache
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.AssemblyInfo.cs
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.csproj.CoreCompileInputs.cache
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.sourcelink.json
+D:\ChoiChoi\PracticeNet\GrpcProvider\bin\Debug\net8.0\GrpcProvider.deps.json
+D:\ChoiChoi\PracticeNet\GrpcProvider\bin\Debug\net8.0\GrpcProvider.dll
+D:\ChoiChoi\PracticeNet\GrpcProvider\bin\Debug\net8.0\GrpcProvider.pdb
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.dll
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\refint\GrpcProvider.dll
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\GrpcProvider.pdb
+D:\ChoiChoi\PracticeNet\GrpcProvider\obj\Debug\net8.0\ref\GrpcProvider.dll

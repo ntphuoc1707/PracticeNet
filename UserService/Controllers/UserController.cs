@@ -1,6 +1,7 @@
 ﻿using DB;
 using DB.DAO;
 using DB.Model;
+using Grpc.Net.Client;
 using MessageQueue;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -22,7 +23,6 @@ namespace UserService.Controllers
             this.userServicePublisher = userServicePublisher;
             _userService=new Services.UserService(userServicePublisher);
         }
-
         [HttpPost(Name = "AddUser")]
         public ActionResult AddUser(UserCreateModel userCreateModel)
         {
@@ -41,7 +41,7 @@ namespace UserService.Controllers
         [HttpGet("{id}",Name ="GetUsers")]
         public ActionResult GetUser([FromRoute]int id)
         {
-            var result = _userService.FindUserById(id);
+            var result = _userService.FindUserById(id);         
             if (result == null)
             {
                 return StatusCode(500, "User is not existed");

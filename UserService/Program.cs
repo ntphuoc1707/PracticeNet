@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using RabbitMQ.Client;
 using System.Text;
 using UserService.Services;
-
+using GrpcProvider;
 internal class Program
 {
     private static void Main(string[] args)
@@ -45,9 +45,21 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
+        builder.Services.AddGrpc();
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+        });
 
         var app = builder.Build();
+        app.UseCors("AllowAll");
+        app.MapGrpcService<GrpcProvider.GrpcProvider>();
 
         // Configure the HTTP request pipeline.
         //if (app.Environment.IsDevelopment())
@@ -55,7 +67,6 @@ internal class Program
         //    app.UseSwagger();
         //    app.UseSwaggerUI();
         //}
-
         app.UseSwagger();
         app.UseSwaggerUI();
 

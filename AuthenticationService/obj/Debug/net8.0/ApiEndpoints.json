@@ -13,22 +13,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserService.Controllers.UserController",
-    "Method": "AddUser",
-    "RelativePath": "user/AddUser",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userCreateModel",
-        "Type": "DB.Model.UserCreateModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "EndpointName": "Login"
   }
 ]

@@ -13,7 +13,8 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "EndpointName": "AddUser"
   },
   {
     "ContainingType": "UserService.Controllers.UserController",
@@ -29,6 +30,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "EndpointName": "GetUsers"
   }
 ]

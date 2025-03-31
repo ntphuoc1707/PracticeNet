@@ -1,14 +1,18 @@
 ﻿using DB.DAO;
 using DB.Entities;
 using DB.Model;
+using Grpc.Net.Client;
+using GrpcProvider.Protos;
 using MessageQueue;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Utility;
+using static GrpcProvider.Protos.GrpcProvider;
 
 namespace AuthenticationService.Controllers
 {
@@ -20,11 +24,16 @@ namespace AuthenticationService.Controllers
         private const string Issuer = "phuoc123";
         private const string Audience = "phuoc123";
         //private UserService.Services.UserService _userService = new UserService.Services.UserService();
+
+        private readonly GrpcProviderClient _grpcClient;
+
+
         private readonly IRabbitMQPublisher<object> authenticationServicePublisher;
 
-        public AuthenticationController(IRabbitMQPublisher<object> authenticationServicePublisher)
+        public AuthenticationController(IRabbitMQPublisher<object> authenticationServicePublisher, GrpcProviderClient grpcClient)
         {
             this.authenticationServicePublisher = authenticationServicePublisher;
+            _grpcClient = grpcClient;
             //_userService = new Services.UserService(userServicePublisher);
         }
 
@@ -33,8 +42,16 @@ namespace AuthenticationService.Controllers
         public async Task<IActionResult> Login(UserCreateModel userCreateModel)
         {
             userCreateModel.Password = Common.HashData(userCreateModel.Password);
-            var result=await authenticationServicePublisher.PublishMessageAsyncWithQueue(userCreateModel, RabbitMQQueues.UserServiceQueue, "FindUserByUserCreateModel");
-            User user = JsonConvert.DeserializeObject<User>(result);
+            //var result=await authenticationServicePublisher.PublishMessageAsyncWithQueue(userCreateModel, RabbitMQQueues.UserServiceQueue, "FindUserByUserCreateModel");
+
+            var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
+            {
+                FullClassName = "UserService.Services.UserService",
+                Funct = "FindUserByUserCreateModel",
+                Data = JsonConvert.SerializeObject(userCreateModel)
+            });
+
+            User user = JsonConvert.DeserializeObject<User>(result.Data);
             if (user == null)
             {
                 return StatusCode(500, "Username or password is wrong");

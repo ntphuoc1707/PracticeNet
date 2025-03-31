@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcProvider.Protos";
+
+service GrpcProvider{
+	rpc HandleMessage(Request) returns (Response);
+}
+
+message Request{
+	string FullClassName=1;
+	string Funct=2;
+	string Data=3;
+}
+
+message Response{
+	string Status=1;
+	string Data=2;
+}

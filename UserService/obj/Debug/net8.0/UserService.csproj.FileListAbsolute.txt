@@ -97,3 +97,16 @@ D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\refint\UserService.dll
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.pdb
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\UserService.genruntimeconfig.cache
 D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\ref\UserService.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\UserService.staticwebassets.endpoints.json
+D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\staticwebassets\msbuild.UserService.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ChoiChoi\PracticeNet\UserService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Google.Protobuf.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.AspNetCore.Server.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.AspNetCore.Server.ClientFactory.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.Core.Api.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.Net.Client.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.Net.ClientFactory.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\Grpc.Net.Common.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\GrpcProvider.dll
+D:\ChoiChoi\PracticeNet\UserService\bin\Debug\net8.0\GrpcProvider.pdb

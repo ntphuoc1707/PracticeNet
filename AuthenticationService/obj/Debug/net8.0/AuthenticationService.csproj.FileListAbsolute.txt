@@ -94,3 +94,16 @@ D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\refint\Authentica
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\AuthenticationService.pdb
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\AuthenticationService.genruntimeconfig.cache
 D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\ref\AuthenticationService.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\AuthenticationService.staticwebassets.endpoints.json
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\staticwebassets\msbuild.AuthenticationService.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\ChoiChoi\PracticeNet\AuthenticationService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Google.Protobuf.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.AspNetCore.Server.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.AspNetCore.Server.ClientFactory.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.Core.Api.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.Net.Client.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.Net.ClientFactory.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\Grpc.Net.Common.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\GrpcProvider.dll
+D:\ChoiChoi\PracticeNet\AuthenticationService\bin\Debug\net8.0\GrpcProvider.pdb
