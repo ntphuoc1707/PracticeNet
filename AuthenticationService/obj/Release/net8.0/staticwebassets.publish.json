@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "M+gUiKix65WyEfxsky1FquSpP4sZ+EPVSwTAUvxHfZ4=",
+  "Hash": "72pp3Op296Z+IIYc2KVgLm/GU4qsJcxmavdwzFrtgB4=",
   "Source": "AuthenticationService",
   "BasePath": "_content/AuthenticationService",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

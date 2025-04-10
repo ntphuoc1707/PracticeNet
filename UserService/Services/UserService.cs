@@ -1,7 +1,7 @@
 ﻿using DB;
 using DB.DAO;
 using DB.Entities;
-using DB.Model;
+using DB.DTO;
 using MessageQueue;
 using Utility;
 
@@ -22,7 +22,7 @@ namespace UserService.Services
         {
         }
 
-        public int AddUser(UserCreateModel userCreateModel)
+        public int AddUser(UserLoginDTO userCreateModel)
         {
             if (_userDAO.FindUserByUsername(userCreateModel.UserName) != null)
             {
@@ -33,7 +33,7 @@ namespace UserService.Services
             {
                 UserID = Guid.NewGuid().ToString(),
                 UserName = userCreateModel.UserName,
-                Password = Common.HashData(userCreateModel.Password)
+                Password = Utility.Common.HashData(userCreateModel.Password)
             };
             _userDAO.AddUser(user);
             
@@ -54,9 +54,19 @@ namespace UserService.Services
         {
             return _userDAO.FindUserByUsernameAndPassword(username,password);
         }
-        public User FindUserByUserCreateModel(UserCreateModel user)
+        public User FindUserByUserCreateModel(UserLoginDTO user)
         {
             return _userDAO.FindUserByUsernameAndPassword(user.UserName, user.Password);
+        }
+
+        public bool SaveRefreshToken(UserRefreshTokenDTO userTokenModel)
+        {
+            return _userDAO.SaveRefreshToken(userTokenModel.UserID, userTokenModel.RefreshToken);
+        }
+
+        public UserToken GetRefreshToken(string userID)
+        {
+            return _userDAO.GetRefreshToken(userID);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using DB.Entities;
-using DB.Model;
+using DB.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +14,8 @@ namespace DB.DAO.Interfaces
         public User FindUserById(int id);
         public User FindUserByUsername(string username);
         public User FindUserByUsernameAndPassword(string username, string password);
+        public bool SaveRefreshToken(string UserID, string refreshToken);
+
+        public UserToken GetRefreshToken(string UserID);
     }
 }

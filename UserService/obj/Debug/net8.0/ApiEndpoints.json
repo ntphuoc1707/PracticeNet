@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "userCreateModel",
-        "Type": "DB.Model.UserCreateModel",
+        "Type": "DB.DTO.UserLoginDTO",
         "IsRequired": true
       }
     ],

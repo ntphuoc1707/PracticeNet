@@ -1,6 +1,6 @@
 ﻿using DB;
 using DB.DAO;
-using DB.Model;
+using DB.DTO;
 using Grpc.Net.Client;
 using MessageQueue;
 using Microsoft.AspNetCore.Authorization;
@@ -23,8 +23,9 @@ namespace UserService.Controllers
             this.userServicePublisher = userServicePublisher;
             _userService=new Services.UserService(userServicePublisher);
         }
+
         [HttpPost(Name = "AddUser")]
-        public ActionResult AddUser(UserCreateModel userCreateModel)
+        public ActionResult AddUser(UserLoginDTO userCreateModel)
         {
             if (userCreateModel == null)
             {

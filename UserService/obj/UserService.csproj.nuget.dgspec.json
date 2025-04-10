@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ChoiChoi\\PracticeNet\\UserService\\UserService.csproj": {}
+    "G:\\workbench\\PracticeNet\\PracticeNet\\UserService\\UserService.csproj": {}
   },
   "projects": {
-    "D:\\ChoiChoi\\PracticeNet\\Common\\Common.csproj": {
+    "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ChoiChoi\\PracticeNet\\Common\\Common.csproj",
+        "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "D:\\ChoiChoi\\PracticeNet\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ChoiChoi\\PracticeNet\\Common\\obj\\",
+        "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
+        "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KienNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,9 +25,10 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/w4DHi2C8yjxElYMgtyyflZlrpS6FFrWPpDvUc3KgNz4gTstztv/api": {}
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -50,6 +51,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -66,24 +77,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ChoiChoi\\PracticeNet\\DB\\DB.csproj": {
+    "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ChoiChoi\\PracticeNet\\DB\\DB.csproj",
+        "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\DB.csproj",
         "projectName": "DB",
-        "projectPath": "D:\\ChoiChoi\\PracticeNet\\DB\\DB.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ChoiChoi\\PracticeNet\\DB\\obj\\",
+        "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\DB.csproj",
+        "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
+        "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KienNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -91,16 +102,17 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/w4DHi2C8yjxElYMgtyyflZlrpS6FFrWPpDvUc3KgNz4gTstztv/api": {}
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\ChoiChoi\\PracticeNet\\Common\\Common.csproj": {
-                "projectPath": "D:\\ChoiChoi\\PracticeNet\\Common\\Common.csproj"
+              "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\Common.csproj": {
+                "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\Common\\Common.csproj"
               }
             }
           }
@@ -125,7 +137,19 @@
               "target": "Package",
               "version": "[9.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.2, )"
             }
@@ -146,24 +170,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj": {
+    "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj",
+        "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj",
         "projectName": "GrpcProvider",
-        "projectPath": "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\obj\\",
+        "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj",
+        "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
+        "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KienNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -171,9 +195,10 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/w4DHi2C8yjxElYMgtyyflZlrpS6FFrWPpDvUc3KgNz4gTstztv/api": {}
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -222,24 +247,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\MessageQueue.csproj": {
+    "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\MessageQueue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\MessageQueue.csproj",
+        "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\MessageQueue.csproj",
         "projectName": "MessageQueue",
-        "projectPath": "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\MessageQueue.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\obj\\",
+        "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\MessageQueue.csproj",
+        "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
+        "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KienNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -247,9 +272,10 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/w4DHi2C8yjxElYMgtyyflZlrpS6FFrWPpDvUc3KgNz4gTstztv/api": {}
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -302,24 +328,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ChoiChoi\\PracticeNet\\UserService\\UserService.csproj": {
+    "G:\\workbench\\PracticeNet\\PracticeNet\\UserService\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ChoiChoi\\PracticeNet\\UserService\\UserService.csproj",
+        "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\UserService\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "D:\\ChoiChoi\\PracticeNet\\UserService\\UserService.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ChoiChoi\\PracticeNet\\UserService\\obj\\",
+        "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\UserService\\UserService.csproj",
+        "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
+        "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\UserService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\KienNT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -327,22 +353,23 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/w4DHi2C8yjxElYMgtyyflZlrpS6FFrWPpDvUc3KgNz4gTstztv/api": {}
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\ChoiChoi\\PracticeNet\\DB\\DB.csproj": {
-                "projectPath": "D:\\ChoiChoi\\PracticeNet\\DB\\DB.csproj"
+              "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\DB.csproj": {
+                "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\DB\\DB.csproj"
               },
-              "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj": {
-                "projectPath": "D:\\ChoiChoi\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj"
+              "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj": {
+                "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcProvider\\GrpcProvider.csproj"
               },
-              "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\MessageQueue.csproj": {
-                "projectPath": "D:\\ChoiChoi\\PracticeNet\\MessageQueue\\MessageQueue.csproj"
+              "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\MessageQueue.csproj": {
+                "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\MessageQueue\\MessageQueue.csproj"
               }
             }
           }
@@ -379,6 +406,10 @@
               "target": "Package",
               "version": "[8.0.13, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -403,7 +434,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5,11 +5,11 @@ namespace DB
 {
     public class AppDbContext:DbContext
     {
-        private const string connectionString = @"Data Source=180.77.15.54;Initial Catalog=DBTEST;Persist Security Info=True;User ID=sa;Password=phuoc123;Trust Server Certificate=True";
+        private const string connectionString = @"Data Source=172.28.16.1;Initial Catalog=DBTEST;Persist Security Info=True;User ID=phuocnt;Password=phuoc123;Trust Server Certificate=True";
 
         public AppDbContext()
         {
-            Database.EnsureCreated();
+           // Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,5 +19,6 @@ namespace DB
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<UserToken> UserToken { get; set; }
     }
 }

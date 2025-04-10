@@ -15,17 +15,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserCreateModel"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserCreateModel"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserCreateModel"
+                "$ref": "#/components/schemas/UserLoginDTO"
               }
             }
           }
@@ -64,7 +64,7 @@
   },
   "components": {
     "schemas": {
-      "UserCreateModel": {
+      "UserLoginDTO": {
         "type": "object",
         "properties": {
           "userName": {

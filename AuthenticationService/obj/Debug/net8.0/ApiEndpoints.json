@@ -9,11 +9,28 @@
     "Parameters": [
       {
         "Name": "userCreateModel",
-        "Type": "DB.Model.UserCreateModel",
+        "Type": "DB.DTO.UserLoginDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [],
     "EndpointName": "Login"
+  },
+  {
+    "ContainingType": "AuthenticationService.Controllers.AuthenticationController",
+    "Method": "RefreshAccessToken",
+    "RelativePath": "authen/RefreshAccessToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userToken",
+        "Type": "DB.DTO.UserRefreshTokenDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "RefreshAccessToken"
   }
 ]

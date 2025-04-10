@@ -1,6 +1,6 @@
 ﻿using DB.DAO;
 using DB.Entities;
-using DB.Model;
+using DB.DTO;
 using Grpc.Net.Client;
 using GrpcProvider.Protos;
 using MessageQueue;
@@ -13,6 +13,7 @@ using System.Security.Claims;
 using System.Text;
 using Utility;
 using static GrpcProvider.Protos.GrpcProvider;
+using Common;
 
 namespace AuthenticationService.Controllers
 {
@@ -28,20 +29,23 @@ namespace AuthenticationService.Controllers
         private readonly GrpcProviderClient _grpcClient;
 
 
+        private readonly ILogger<CustomException> _logger;
         private readonly IRabbitMQPublisher<object> authenticationServicePublisher;
+        private readonly IConfiguration _configuration;
 
-        public AuthenticationController(IRabbitMQPublisher<object> authenticationServicePublisher, GrpcProviderClient grpcClient)
+        public AuthenticationController(IRabbitMQPublisher<object> authenticationServicePublisher, GrpcProviderClient grpcClient, IConfiguration configuration)
         {
             this.authenticationServicePublisher = authenticationServicePublisher;
             _grpcClient = grpcClient;
+            _configuration = configuration;
             //_userService = new Services.UserService(userServicePublisher);
         }
 
 
-        [HttpPost(Name ="Login")]
-        public async Task<IActionResult> Login(UserCreateModel userCreateModel)
+        [HttpPost(Name = "Login")]
+        public async Task<IActionResult> Login(UserLoginDTO userCreateModel)
         {
-            userCreateModel.Password = Common.HashData(userCreateModel.Password);
+            userCreateModel.Password = Utility.Common.HashData(userCreateModel.Password);
             //var result=await authenticationServicePublisher.PublishMessageAsyncWithQueue(userCreateModel, RabbitMQQueues.UserServiceQueue, "FindUserByUserCreateModel");
 
             var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
@@ -58,15 +62,43 @@ namespace AuthenticationService.Controllers
             }
             else
             {
-                return Ok(new { Token = GenerateJwtToken(user.UserID) });
+                UserRefreshTokenDTO userTokenModel = new UserRefreshTokenDTO { UserID = user.UserID, RefreshToken = GenerateRefreshToken() };
+                var saveRefreshToken = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
+                {
+                    FullClassName = "UserService.Services.UserService",
+                    Funct = "SaveRefreshToken",
+                    Data = JsonConvert.SerializeObject(userTokenModel)
+                });
+                return Ok(new { Token = GenerateJwtToken(user.UserID), RefeshToken = userTokenModel.RefreshToken });
             }
         }
 
-        private string GenerateJwtToken(string username)
+        [HttpPost(Name = "RefreshAccessToken")]
+        public async Task<IActionResult> RefreshAccessToken(UserRefreshTokenDTO userToken)
+        {
+            var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
+            {
+                FullClassName = "UserService.Services.UserService",
+                Funct = "GetRefreshToken",
+                Data = JsonConvert.SerializeObject(userToken.UserID)
+            });
+            UserToken existedUserToken = JsonConvert.DeserializeObject<UserToken>(result.Data);
+            if (existedUserToken != null)
+            {
+                int ExpiredRefreshToken = int.Parse(_configuration.GetSection("ExpiredRefreshToken").Value);
+                if (existedUserToken.RefreshToken.Equals(userToken.RefreshToken) && existedUserToken.DateCreated.AddHours(ExpiredRefreshToken) < DateTime.Now)
+                {
+                    return Ok(new { Token = GenerateJwtToken(existedUserToken.UserID), RefeshToken = existedUserToken.RefreshToken });
+                }
+            }
+            return StatusCode(500, "Refresh Token is invalid");
+        }
+
+        private string GenerateJwtToken(string userID)
         {
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username)
+                new Claim(JwtRegisteredClaimNames.Sub, userID)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
@@ -81,6 +113,11 @@ namespace AuthenticationService.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }

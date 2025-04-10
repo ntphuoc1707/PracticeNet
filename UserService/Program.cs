@@ -1,13 +1,15 @@
+using Common;
 using DB;
 using MessageQueue;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using RabbitMQ.Client;
+using Serilog;
+using System.Net;
+using System.Security.Authentication;
 using System.Text;
 using UserService.Services;
-using GrpcProvider;
 internal class Program
 {
     private static void Main(string[] args)
@@ -36,6 +38,7 @@ internal class Program
 
         //IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         // Add services to the container.
+        builder.Services.AddDbContext<AppDbContext>();
         builder.Services.Configure<RabbitMQSetting>(rabbitconfig);
         builder.Services.AddSingleton(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 
@@ -56,8 +59,30 @@ internal class Program
                           .AllowAnyHeader();
                 });
         });
+        builder.WebHost.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.Listen(System.Net.IPAddress.Any, 4444, listenOptions =>
+            {
+                listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+                listenOptions.UseHttps("G:\\MyFirstCert.pfx", "phuoc123");
+            });
+        });
 
+        Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.File(builder.Configuration.GetSection("LogFilePath").Value,
+                  rollingInterval: RollingInterval.Day,
+                  retainedFileCountLimit: 7,
+                  outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .CreateLogger();
+
+        builder.Host.UseSerilog();
         var app = builder.Build();
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            dbContext.Database.Migrate();
+        }
         app.UseCors("AllowAll");
         app.MapGrpcService<GrpcProvider.GrpcProvider>();
 
@@ -67,6 +92,7 @@ internal class Program
         //    app.UseSwagger();
         //    app.UseSwaggerUI();
         //}
+        app.UseMiddleware<CustomException>();
         app.UseSwagger();
         app.UseSwaggerUI();
 
