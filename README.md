@@ -1,3 +1,6 @@
+# Take note
+gRPC does not work when deploying in IIS
+
 # 🚀 Deploy ASP.NET Core API with Docker
 
 ## 📌 Prerequisites
