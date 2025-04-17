@@ -5,7 +5,7 @@ namespace DB
 {
     public class AppDbContext:DbContext
     {
-        private const string connectionString = @"Data Source=172.28.16.1;Initial Catalog=DBTEST;Persist Security Info=True;User ID=phuocnt;Password=phuoc123;Trust Server Certificate=True";
+        private const string connectionString = @"Data Source=localhost;Initial Catalog=DBTEST;Persist Security Info=True;User ID=phuocnt;Password=phuoc123;Trust Server Certificate=True";
 
         public AppDbContext()
         {

@@ -14,6 +14,7 @@ using System.Text;
 using Utility;
 using static GrpcProvider.Protos.GrpcProvider;
 using Common;
+using Newtonsoft.Json.Linq;
 
 namespace AuthenticationService.Controllers
 {
@@ -58,7 +59,7 @@ namespace AuthenticationService.Controllers
             User user = JsonConvert.DeserializeObject<User>(result.Data);
             if (user == null)
             {
-                return StatusCode(500, "Username or password is wrong");
+                return StatusCode(401, "Username or password is wrong");
             }
             else
             {
@@ -69,7 +70,22 @@ namespace AuthenticationService.Controllers
                     Funct = "SaveRefreshToken",
                     Data = JsonConvert.SerializeObject(userTokenModel)
                 });
-                return Ok(new { Token = GenerateJwtToken(user.UserID), RefeshToken = userTokenModel.RefreshToken });
+
+                Response.Cookies.Append("accessToken", GenerateJwtToken(user.UserID), new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict,
+                    Expires = DateTimeOffset.UtcNow.AddHours(1)
+                }); 
+                Response.Cookies.Append("refreshToken", userTokenModel.RefreshToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict,
+                    Expires = DateTimeOffset.UtcNow.AddHours(1)
+                });
+                return Ok(new { Message="Successfully" });
             }
         }
 
@@ -88,7 +104,21 @@ namespace AuthenticationService.Controllers
                 int ExpiredRefreshToken = int.Parse(_configuration.GetSection("ExpiredRefreshToken").Value);
                 if (existedUserToken.RefreshToken.Equals(userToken.RefreshToken) && existedUserToken.DateCreated.AddHours(ExpiredRefreshToken) < DateTime.Now)
                 {
-                    return Ok(new { Token = GenerateJwtToken(existedUserToken.UserID), RefeshToken = existedUserToken.RefreshToken });
+                    Response.Cookies.Append("accessToken", GenerateJwtToken(existedUserToken.UserID), new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.Strict,
+                        Expires = DateTimeOffset.UtcNow.AddHours(1)
+                    });
+                    Response.Cookies.Append("refreshToken", existedUserToken.RefreshToken, new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.Strict,
+                        Expires = DateTimeOffset.UtcNow.AddHours(1)
+                    });
+                    return Ok(new { Message="Successfully" });
                 }
             }
             return StatusCode(500, "Refresh Token is invalid");

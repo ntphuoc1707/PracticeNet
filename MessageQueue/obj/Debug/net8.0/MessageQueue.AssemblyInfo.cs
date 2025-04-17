@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MessageQueue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdff19440209d8434dbfad3b43d9039cddbc4576")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c521a354335adc15bc840dfbcb7ac337b8f0bd31")]
 [assembly: System.Reflection.AssemblyProductAttribute("MessageQueue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MessageQueue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

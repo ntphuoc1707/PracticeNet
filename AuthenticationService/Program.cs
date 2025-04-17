@@ -40,9 +40,19 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
         listenOptions.UseHttps("G:\\MyFirstCert.pfx", "phuoc123");
     });
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        builder => builder
+            .WithOrigins("http://localhost:4200") // <-- Cho phép Angular
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+    );
+});
 var app = builder.Build();
+app.UseCors("AllowAll");
 
+app.UseCors("AllowAngularApp");
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{

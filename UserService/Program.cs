@@ -1,4 +1,4 @@
-using Common;
+﻿using Common;
 using DB;
 using MessageQueue;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -51,13 +51,13 @@ internal class Program
         builder.Services.AddGrpc();
         builder.Services.AddCors(options =>
         {
-            options.AddPolicy("AllowAll",
-                policy =>
-                {
-                    policy.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader();
-                });
+            options.AddPolicy("FrontendPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:4200")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials();
+            });
         });
         builder.WebHost.ConfigureKestrel(serverOptions =>
         {
@@ -83,15 +83,26 @@ internal class Program
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             dbContext.Database.Migrate();
         }
-        app.UseCors("AllowAll");
+        app.UseCors("FrontendPolicy");
         app.MapGrpcService<GrpcProvider.GrpcProvider>();
 
         // Configure the HTTP request pipeline.
-        //if (app.Environment.IsDevelopment())
-        //{
-        //    app.UseSwagger();
-        //    app.UseSwaggerUI();
-        //}
+        if (app.Environment.IsDevelopment())
+        {
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader();
+                    });
+            });
+            app.UseCors("AllowAll");
+            //    app.UseSwagger();
+            //    app.UseSwaggerUI();
+        }
         app.UseMiddleware<CustomException>();
         app.UseSwagger();
         app.UseSwaggerUI();
