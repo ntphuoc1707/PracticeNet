@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cJHrbqJBaqU=",
+  "dgSpecHash": "sxCssjOwrQU=",
   "success": true,
-  "projectFilePath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService1.csproj",
+  "projectFilePath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KienNT\\.nuget\\packages\\google.protobuf\\3.23.1\\google.protobuf.3.23.1.nupkg.sha512",
     "C:\\Users\\KienNT\\.nuget\\packages\\grpc.aspnetcore\\2.57.0\\grpc.aspnetcore.2.57.0.nupkg.sha512",

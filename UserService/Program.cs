@@ -1,38 +1,28 @@
-﻿using Common;
+﻿using Azure.Core;
+using Common;
 using DB;
 using MessageQueue;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Security;
 using Serilog;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Authentication;
 using System.Text;
+using System.Text.Json;
 using UserService.Services;
 internal class Program
 {
+
+    private static JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        var key = Encoding.ASCII.GetBytes("your-secret-key-that-is-long-enough");
-        builder.Services.AddAuthentication(option =>
-        {
-            option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options =>
-        {
-            options.RequireHttpsMetadata = false;
-            options.SaveToken = true;
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuerSigningKey = true,
-                ValidateIssuer = false,
-                ValidateAudience = false
-            };
-        });
+        builder.Services.AddJwtAuthentication();
 
         var rabbitconfig = builder.Configuration.GetSection("RabbitMQ");
 
@@ -51,13 +41,14 @@ internal class Program
         builder.Services.AddGrpc();
         builder.Services.AddCors(options =>
         {
-            options.AddPolicy("FrontendPolicy", builder =>
-            {
-                builder.WithOrigins("http://localhost:4200")
-                       .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .AllowCredentials();
-            });
+            options.AddPolicy("AllowGateway",
+                policy =>
+                {
+                    policy.WithOrigins("https://localhost:5001")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .AllowCredentials();
+                });
         });
         builder.WebHost.ConfigureKestrel(serverOptions =>
         {
@@ -67,7 +58,7 @@ internal class Program
                 listenOptions.UseHttps("G:\\MyFirstCert.pfx", "phuoc123");
             });
         });
-
+        builder.Host.UseWindowsService();
         Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.File(builder.Configuration.GetSection("LogFilePath").Value,
@@ -83,23 +74,23 @@ internal class Program
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             dbContext.Database.Migrate();
         }
-        app.UseCors("FrontendPolicy");
+        app.UseCors("AllowGateway");
         app.MapGrpcService<GrpcProvider.GrpcProvider>();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    policy =>
-                    {
-                        policy.AllowAnyOrigin()
-                              .AllowAnyMethod()
-                              .AllowAnyHeader();
-                    });
-            });
-            app.UseCors("AllowAll");
+           //builder.Services.AddCors(options =>
+           //{
+           //    options.AddPolicy("AllowAll",
+           //        policy =>
+           //        {
+           //            policy.AllowAnyOrigin()
+           //                  .AllowAnyMethod()
+           //                  .AllowAnyHeader();
+           //        });
+           //});
+           //app.UseCors("AllowAll");
             //    app.UseSwagger();
             //    app.UseSwaggerUI();
         }
@@ -109,6 +100,7 @@ internal class Program
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();

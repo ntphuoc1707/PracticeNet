@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "L93bSzFN1qUkI3nut+3Cw1IGXJowEZOR9SFUOQh9Tz4=",
+  "Source": "GatewayAPI",
+  "BasePath": "_content/GatewayAPI",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

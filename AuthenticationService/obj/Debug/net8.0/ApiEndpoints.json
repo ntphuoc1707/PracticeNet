@@ -32,5 +32,16 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "RefreshAccessToken"
+  },
+  {
+    "ContainingType": "AuthenticationService.Controllers.AuthenticationController",
+    "Method": "RefreshAccessTokenCookie",
+    "RelativePath": "authen/RefreshAccessTokenCookie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "RefreshAccessTokenCookie"
   }
 ]

@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>G:\workbench\PracticeNet\PracticeNet\Published\PracticeNet_AuthenticationService\publish</_PublishTargetUrl>
-    <History>True|2025-04-17T16:07:26.7350412Z||;True|2025-04-17T23:07:23.8919431+07:00||;True|2025-04-17T22:50:46.7811606+07:00||;True|2025-04-17T22:48:48.5307347+07:00||;True|2025-04-17T21:56:25.5890712+07:00||;True|2025-04-17T21:53:43.9338219+07:00||;True|2025-04-10T16:22:52.4375328+07:00||;False|2025-04-10T16:22:40.5793530+07:00||;True|2025-04-10T16:19:17.1518689+07:00||;True|2025-04-10T16:07:47.8595805+07:00||;True|2025-04-10T16:05:14.3028765+07:00||;False|2025-04-10T16:05:03.6653609+07:00||;True|2025-04-10T15:39:54.8979805+07:00||;True|2025-04-10T15:21:57.2771835+07:00||;</History>
+    <History>True|2025-04-19T13:10:34.5683949Z||;False|2025-04-19T20:10:18.7576270+07:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

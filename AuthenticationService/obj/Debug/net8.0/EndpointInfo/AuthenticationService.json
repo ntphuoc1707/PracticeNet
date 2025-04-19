@@ -68,6 +68,19 @@
           }
         }
       }
+    },
+    "/authen/RefreshAccessTokenCookie": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "RefreshAccessTokenCookie",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

@@ -796,9 +796,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService1.csproj",
-      "projectName": "GrpcService1",
-      "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService1.csproj",
+      "projectUniqueName": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService.csproj",
+      "projectName": "GrpcService",
+      "projectPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\GrpcService.csproj",
       "packagesPath": "C:\\Users\\KienNT\\.nuget\\packages\\",
       "outputPath": "G:\\workbench\\PracticeNet\\PracticeNet\\GrpcService1\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,10 +1,7 @@
 ﻿using Common;
 using MessageQueue;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using System.Net;
-using System.Security.Authentication;
 using static GrpcProvider.Protos.GrpcProvider;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,12 +19,11 @@ builder.Services.AddGrpcClient<GrpcProviderClient>(o =>
     o.Address = new Uri(builder.Configuration.GetSection("UserServiceIP").Value);
 });
 
-
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()                      
-    .WriteTo.File(config.GetSection("LogFilePath").Value,                 
+    .MinimumLevel.Debug()
+    .WriteTo.File(config.GetSection("LogFilePath").Value,
                   rollingInterval: RollingInterval.Day,
-                  retainedFileCountLimit: 7,       
+                  retainedFileCountLimit: 7,
                   outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
     .CreateLogger();
 
@@ -40,19 +36,22 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
         listenOptions.UseHttps("G:\\MyFirstCert.pfx", "phuoc123");
     });
 });
+builder.Host.UseWindowsService();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularApp",
-        builder => builder
-            .WithOrigins("http://localhost:4200") // <-- Cho phép Angular
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-    );
+    options.AddPolicy("AllowGateway",
+        policy =>
+        {
+            policy.WithOrigins("https://localhost:5001")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
 });
 var app = builder.Build();
-app.UseCors("AllowAll");
 
-app.UseCors("AllowAngularApp");
+
+app.UseCors("AllowGateway");
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{

@@ -15,6 +15,8 @@ using Utility;
 using static GrpcProvider.Protos.GrpcProvider;
 using Common;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Security;
 
 namespace AuthenticationService.Controllers
 {
@@ -22,9 +24,6 @@ namespace AuthenticationService.Controllers
     [Route("~/authen/[action]")]
     public class AuthenticationController : Controller
     {
-        private const string SecretKey = "your-secret-key-that-is-long-enough";
-        private const string Issuer = "phuoc123";
-        private const string Audience = "phuoc123";
         //private UserService.Services.UserService _userService = new UserService.Services.UserService();
 
         private readonly GrpcProviderClient _grpcClient;
@@ -33,13 +32,15 @@ namespace AuthenticationService.Controllers
         private readonly ILogger<CustomException> _logger;
         private readonly IRabbitMQPublisher<object> authenticationServicePublisher;
         private readonly IConfiguration _configuration;
-
+        int ExpiredCookie = 1;
+        int ExpiredToken = 10;//seconds
         public AuthenticationController(IRabbitMQPublisher<object> authenticationServicePublisher, GrpcProviderClient grpcClient, IConfiguration configuration)
         {
             this.authenticationServicePublisher = authenticationServicePublisher;
             _grpcClient = grpcClient;
             _configuration = configuration;
-            //_userService = new Services.UserService(userServicePublisher);
+            ExpiredCookie= int.Parse(_configuration.GetSection("ExpiredCookie").Value);
+            ExpiredToken = int.Parse(_configuration.GetSection("ExpiredToken").Value);
         }
 
 
@@ -63,7 +64,7 @@ namespace AuthenticationService.Controllers
             }
             else
             {
-                UserRefreshTokenDTO userTokenModel = new UserRefreshTokenDTO { UserID = user.UserID, RefreshToken = GenerateRefreshToken() };
+                UserRefreshTokenDTO userTokenModel = new UserRefreshTokenDTO { UserID = user.UserID, RefreshToken = JwtAuthentication.GenerateRefreshToken() };
                 var saveRefreshToken = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
                 {
                     FullClassName = "UserService.Services.UserService",
@@ -71,19 +72,19 @@ namespace AuthenticationService.Controllers
                     Data = JsonConvert.SerializeObject(userTokenModel)
                 });
 
-                Response.Cookies.Append("accessToken", GenerateJwtToken(user.UserID), new CookieOptions
+                Response.Cookies.Append("accessToken", JwtAuthentication.GenerateJwtToken(user.UserID), new CookieOptions
                 {
                     HttpOnly = true,
                     Secure = true,
-                    SameSite = SameSiteMode.Strict,
-                    Expires = DateTimeOffset.UtcNow.AddHours(1)
+                    SameSite = SameSiteMode.None,
+                    Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
                 }); 
                 Response.Cookies.Append("refreshToken", userTokenModel.RefreshToken, new CookieOptions
                 {
                     HttpOnly = true,
                     Secure = true,
-                    SameSite = SameSiteMode.Strict,
-                    Expires = DateTimeOffset.UtcNow.AddHours(1)
+                    SameSite = SameSiteMode.None,
+                    Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
                 });
                 return Ok(new { Message="Successfully" });
             }
@@ -102,52 +103,69 @@ namespace AuthenticationService.Controllers
             if (existedUserToken != null)
             {
                 int ExpiredRefreshToken = int.Parse(_configuration.GetSection("ExpiredRefreshToken").Value);
-                if (existedUserToken.RefreshToken.Equals(userToken.RefreshToken) && existedUserToken.DateCreated.AddHours(ExpiredRefreshToken) < DateTime.Now)
+                if (existedUserToken.RefreshToken.Equals(userToken.RefreshToken) && existedUserToken.DateCreated.AddHours(ExpiredRefreshToken) > DateTime.Now)
                 {
-                    Response.Cookies.Append("accessToken", GenerateJwtToken(existedUserToken.UserID), new CookieOptions
+                    Response.Cookies.Append("accessToken", JwtAuthentication.GenerateJwtToken(existedUserToken.UserID), new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true,
-                        SameSite = SameSiteMode.Strict,
-                        Expires = DateTimeOffset.UtcNow.AddHours(1)
+                        SameSite = SameSiteMode.None,
+                        Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
                     });
                     Response.Cookies.Append("refreshToken", existedUserToken.RefreshToken, new CookieOptions
                     {
                         HttpOnly = true,
                         Secure = true,
-                        SameSite = SameSiteMode.Strict,
-                        Expires = DateTimeOffset.UtcNow.AddHours(1)
+                        SameSite = SameSiteMode.None,
+                        Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
                     });
                     return Ok(new { Message="Successfully" });
                 }
             }
-            return StatusCode(500, "Refresh Token is invalid");
+            return StatusCode(401, "Refresh Token is invalid");
         }
 
-        private string GenerateJwtToken(string userID)
+        [HttpPost(Name = "RefreshAccessTokenCookie")]
+        public async Task<IActionResult> RefreshAccessTokenCookie()
         {
-            var claims = new[]
+            string refreshToken=Request.Cookies["refreshToken"];
+            string accessToken = Request.Cookies["accessToken"];
+
+            var userId = JwtAuthentication.GetClaims(accessToken, "sub");
+
+            UserRefreshTokenDTO userToken = new UserRefreshTokenDTO { RefreshToken = refreshToken, UserID = userId };
+            var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userID)
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                Issuer,
-                Audience,
-                claims,
-                expires: DateTime.Now.AddHours(100),
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+                FullClassName = "UserService.Services.UserService",
+                Funct = "GetRefreshToken",
+                Data = JsonConvert.SerializeObject(userToken.UserID)
+            });
+            UserToken existedUserToken = JsonConvert.DeserializeObject<UserToken>(result.Data);
+            if (existedUserToken != null)
+            {
+                int ExpiredRefreshToken = int.Parse(_configuration.GetSection("ExpiredRefreshToken").Value);
+                if (existedUserToken.RefreshToken.Equals(userToken.RefreshToken) && existedUserToken.DateCreated.AddHours(ExpiredRefreshToken) > DateTime.Now)
+                {
+                    Response.Cookies.Append("accessToken", JwtAuthentication.GenerateJwtToken(existedUserToken.UserID), new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.None,
+                        Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
+                    });
+                    Response.Cookies.Append("refreshToken", existedUserToken.RefreshToken, new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.None,
+                        Expires = DateTimeOffset.UtcNow.AddHours(ExpiredCookie)
+                    });
+                    return Ok(new { Message = "Successfully" });
+                } else return StatusCode(401, new { Message = "Refresh Token is expired" });
+            }
+            return StatusCode(401, new { Message = "Refresh Token is invalid" });
         }
 
-        private string GenerateRefreshToken()
-        {
-            return Guid.NewGuid().ToString("N");
-        }
+
     }
 }
