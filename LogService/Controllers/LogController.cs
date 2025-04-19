@@ -1,6 +1,7 @@
-﻿namespace LogService
+﻿namespace LogService.Controllers
 {
     public class LogController
     {
+
     }
 }

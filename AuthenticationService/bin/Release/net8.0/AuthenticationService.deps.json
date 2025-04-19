@@ -16,6 +16,7 @@
           "Microsoft.Extensions.Hosting.WindowsServices": "9.0.4",
           "Newtonsoft.Json": "13.0.3",
           "RabbitMQ.Client": "7.1.2",
+          "Security": "1.0.0",
           "Serilog": "4.2.0",
           "Serilog.AspNetCore": "9.0.0",
           "Serilog.Sinks.File": "6.0.0",
@@ -1297,6 +1298,20 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Security/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.13",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
+        },
+        "runtime": {
+          "Security.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -2064,6 +2079,11 @@
       "sha512": ""
     },
     "MessageQueue/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

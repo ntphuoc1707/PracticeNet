@@ -20,5 +20,6 @@
     <ProjectReference Include="..\DB\DB.csproj" />
     <ProjectReference Include="..\GrpcProvider\GrpcProvider.csproj" />
     <ProjectReference Include="..\MessageQueue\MessageQueue.csproj" />
+    <ProjectReference Include="..\Security\Security.csproj" />
   </ItemGroup>
 </Project>

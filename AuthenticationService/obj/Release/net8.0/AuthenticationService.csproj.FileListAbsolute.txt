@@ -239,3 +239,5 @@ G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\Sy
 G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
 G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll
+G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\Security.dll
+G:\workbench\PracticeNet\PracticeNet\AuthenticationService\bin\Release\net8.0\Security.pdb

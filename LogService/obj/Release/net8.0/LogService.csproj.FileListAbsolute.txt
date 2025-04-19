@@ -1,0 +1,8 @@
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.csproj.AssemblyReference.cache
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.GeneratedMSBuildEditorConfig.editorconfig
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.AssemblyInfoInputs.cache
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.AssemblyInfo.cs
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.csproj.CoreCompileInputs.cache
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.MvcApplicationPartsAssemblyInfo.cs
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.MvcApplicationPartsAssemblyInfo.cache
+G:\workbench\PracticeNet\PracticeNet\LogService\obj\Release\net8.0\LogService.sourcelink.json

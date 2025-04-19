@@ -24,7 +24,6 @@ namespace AuthenticationService.Controllers
     [Route("~/authen/[action]")]
     public class AuthenticationController : Controller
     {
-        //private UserService.Services.UserService _userService = new UserService.Services.UserService();
 
         private readonly GrpcProviderClient _grpcClient;
 
