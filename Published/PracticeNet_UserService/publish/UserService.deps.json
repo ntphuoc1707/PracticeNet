@@ -16,6 +16,7 @@
           "MessageQueue": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.13",
           "Microsoft.Extensions.Hosting.WindowsServices": "9.0.4",
+          "Security": "1.0.0",
           "Serilog.AspNetCore": "9.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -1340,6 +1341,20 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Security/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.13",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
+        },
+        "runtime": {
+          "Security.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -2142,6 +2157,11 @@
       "sha512": ""
     },
     "MessageQueue/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

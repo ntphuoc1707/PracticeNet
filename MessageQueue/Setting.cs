@@ -13,5 +13,6 @@
     {
         public const string UserServiceQueue = "UserServiceQueue";
         public const string AuthenticationServiceQueue = "AuthenticationServiceQueue";
+        public const string LogServiceQueue = "LogServiceQueue";
     }
 }

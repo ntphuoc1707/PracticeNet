@@ -12,7 +12,7 @@ namespace DB.DAO
 {
     public class UserDAO : IUserDAO
     {
-        private AppDbContext _appDbContext ;
+        private AppDbContext _appDbContext;
 
         public UserDAO(AppDbContext appDbContext)
         {

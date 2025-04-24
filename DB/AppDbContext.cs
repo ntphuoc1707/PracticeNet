@@ -20,5 +20,6 @@ namespace DB
 
         public DbSet<User> User { get; set; }
         public DbSet<UserToken> UserToken { get; set; }
+        public DbSet<Conversation> Conversation { get; set; }
     }
 }

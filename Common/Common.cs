@@ -18,5 +18,13 @@ namespace Utility
                 return builder.ToString();
             }
         }
+
+        public class ServerInfoSetting
+        {
+            public int Port { get; set; }
+            public string? ServerName { get; set; }
+            public string ? HttpCertPath { get; set; }
+            public string? HttpCertPass { get; set; }
+        }
     }
 }

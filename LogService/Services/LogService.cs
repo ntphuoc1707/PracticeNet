@@ -6,7 +6,9 @@ namespace LogService.Services
     {
         private readonly string logFile;
         private IConfiguration _configuration;
-        public LogService() { }
+        public LogService() {
+
+        }
         public LogService(IConfiguration configuration)
         {
             this._configuration = configuration;

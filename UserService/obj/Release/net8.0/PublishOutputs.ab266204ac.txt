@@ -116,7 +116,9 @@ G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\C
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\DB.dll
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\GrpcProvider.dll
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\MessageQueue.dll
+G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\Security.dll
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\DB.pdb
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\GrpcProvider.pdb
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\MessageQueue.pdb
+G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\Security.pdb
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Release\net8.0\PubTmp\Out\Common.pdb

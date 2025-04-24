@@ -1,18 +1,24 @@
-﻿using Common;
+﻿using AuthenticationService.Interfaces;
+using Common;
 using MessageQueue;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using static GrpcProvider.Protos.GrpcProvider;
+using static Utility.Common;
 
 var builder = WebApplication.CreateBuilder(args);
-IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 // Add services to the container.
-builder.Services.Configure<RabbitMQSetting>(config.GetSection("RabbitMQ"));
+
+builder.Services.Configure<RabbitMQSetting>(builder.Configuration.GetSection("RabbitMQ"));
 builder.Services.AddSingleton(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService.Services.AuthenticationService>();
+
 
 builder.Services.AddGrpcClient<GrpcProviderClient>(o =>
 {
@@ -21,19 +27,25 @@ builder.Services.AddGrpcClient<GrpcProviderClient>(o =>
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
-    .WriteTo.File(config.GetSection("LogFilePath").Value,
+    .WriteTo.File(builder.Configuration.GetSection("LogFilePath").Value,
                   rollingInterval: RollingInterval.Day,
                   retainedFileCountLimit: 7,
                   outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
     .CreateLogger();
 
 builder.Host.UseSerilog();
+
+
+var serverInfo = builder.Configuration.GetSection("ServerInfo");
+builder.Services.Configure<ServerInfoSetting>(serverInfo);
+
+var instanceServerInfo = serverInfo.Get<ServerInfoSetting>();
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.Listen(System.Net.IPAddress.Any, 3333, listenOptions =>
+    serverOptions.Listen(System.Net.IPAddress.Any, instanceServerInfo.Port, listenOptions =>
     {
         listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
-        listenOptions.UseHttps("G:\\MyFirstCert.pfx", "phuoc123");
+        listenOptions.UseHttps(instanceServerInfo.HttpCertPath, instanceServerInfo.HttpCertPass);
     });
 });
 builder.Host.UseWindowsService();

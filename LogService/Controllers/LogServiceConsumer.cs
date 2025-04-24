@@ -1,4 +1,5 @@
-﻿using MessageQueue;
+﻿using LogService.Interfaces;
+using MessageQueue;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -16,10 +17,11 @@ namespace LogService.Controllers
         private IConnection _connection;
         private IChannel _channel;
 
-        private LogService.Services.LogService _LogService = new LogService.Services.LogService();
+        private LogService.Services.LogService _LogService;
 
-        public LogServiceConsumer(IOptions<RabbitMQSetting> rabbitMqSetting)
+        public LogServiceConsumer(IOptions<RabbitMQSetting> rabbitMqSetting, ILogService logService)
         {
+            this._LogService = (Services.LogService?)logService;
             _rabbitMqSetting = rabbitMqSetting.Value;
             var factory = new ConnectionFactory
             {
@@ -71,7 +73,15 @@ namespace LogService.Controllers
                         else
                         {
                             Type paramType = parameters[0].ParameterType;
-                            object paramObject = JsonConvert.DeserializeObject(inputData, paramType);
+                            object paramObject;
+                            try
+                            {
+                                paramObject = JsonConvert.DeserializeObject(inputData, paramType);
+                            }
+                            catch
+                            {
+                                paramObject = inputData;
+                            }
                             result = method.Invoke(_LogService, new object[] { paramObject });
                             var responseBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(result));
                             await _channel.BasicPublishAsync(exchange: "", routingKey: props.ReplyTo, mandatory: false, basicProperties: replyProps, body: responseBytes);
@@ -80,12 +90,12 @@ namespace LogService.Controllers
                     }
                     else
                     {
-                        _channel.BasicRejectAsync(deliveryTag: ea.DeliveryTag, requeue: true);
+                        _channel.BasicRejectAsync(deliveryTag: ea.DeliveryTag, requeue: false);
                     }
                 }
                 catch (Exception ex)
                 {
-                    _channel.BasicRejectAsync(deliveryTag: ea.DeliveryTag, requeue: true);
+                    _channel.BasicRejectAsync(deliveryTag: ea.DeliveryTag, requeue: false);
                 }
             };
             _channel.BasicConsumeAsync(queue: queueName, autoAck: false, consumer: consumer);
