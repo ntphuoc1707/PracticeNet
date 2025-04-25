@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "ContainingType": "ChatController",
+    "Method": "StartConversation",
+    "RelativePath": "chat/StartConversation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startConversationRequest",
+        "Type": "DB.DTO.Chat.StartConversationRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "StartConversation"
+  }
+]

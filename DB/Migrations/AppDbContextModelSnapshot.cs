@@ -22,6 +22,43 @@ namespace DB.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DB.Entities.Conversation", b =>
+                {
+                    b.Property<string>("GroupId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("GroupId", "UserId");
+
+                    b.ToTable("Conversation");
+                });
+
+            modelBuilder.Entity("DB.Entities.ConversationDetail", b =>
+                {
+                    b.Property<string>("GroupId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MemberNum")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("GroupId");
+
+                    b.ToTable("ConversationDetail");
+                });
+
             modelBuilder.Entity("DB.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -45,7 +82,7 @@ namespace DB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("DB.Entities.UserToken", b =>
@@ -69,7 +106,7 @@ namespace DB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserToken", (string)null);
+                    b.ToTable("UserToken");
                 });
 #pragma warning restore 612, 618
         }

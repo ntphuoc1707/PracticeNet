@@ -7,9 +7,10 @@ service GrpcProvider{
 }
 
 message Request{
-	string FullClassName=1;
-	string Funct=2;
-	string Data=3;
+	string ServiceName=1;
+	string FullClassName=2;
+	string Funct=3;
+	string Data=4;
 }
 
 message Response{

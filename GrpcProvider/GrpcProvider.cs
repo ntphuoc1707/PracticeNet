@@ -18,11 +18,12 @@ namespace GrpcProvider
 
         public override Task<Response> HandleMessage(Request request, ServerCallContext context)
         {
+            string serviceName = request.ServiceName;
             string fullClassName = request.FullClassName;
             string funcName = request.Funct.ToString();
             string inputData = request.Data.ToString();
 
-            Assembly assembly = Assembly.Load("UserService");
+            Assembly assembly = Assembly.Load(serviceName);
             Type type = assembly.GetType(fullClassName);
             var instance = Activator.CreateInstance(type);
             MethodInfo method = type.GetMethod(funcName);

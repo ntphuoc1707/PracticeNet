@@ -1,6 +1,10 @@
 # Take note
 gRPC does not work when deploying in IIS
 
+# Migrate DB
+cmd Project DB, then run: dotnet ef migrations add [namemigrations]
+Finally, run : dotnet ef database update
+
 # 🚀 Deploy ASP.NET Core API with Docker
 
 ## 📌 Prerequisites

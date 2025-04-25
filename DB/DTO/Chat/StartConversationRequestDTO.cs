@@ -10,6 +10,5 @@ namespace DB.DTO.Chat
     {
         public string SenderId { get; set; }
         public string ReceiverId { get; set; }
-        public DateTime? DateCreated { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using ChatService.Hubs;
+using ChatService.Interfaces;
 using ChatService.Services;
 using DB;
 using MessageQueue;
@@ -6,6 +7,10 @@ using MessageQueue;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IChatService, ChatService.Services.ChatService>();
+
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

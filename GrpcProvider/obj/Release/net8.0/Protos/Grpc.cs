@@ -24,15 +24,16 @@ namespace GrpcProvider.Protos {
     static GrpcReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFQcm90b3MvZ3JwYy5wcm90byI9CgdSZXF1ZXN0EhUKDUZ1bGxDbGFzc05h",
-            "bWUYASABKAkSDQoFRnVuY3QYAiABKAkSDAoERGF0YRgDIAEoCSIoCghSZXNw",
-            "b25zZRIOCgZTdGF0dXMYASABKAkSDAoERGF0YRgCIAEoCTI0CgxHcnBjUHJv",
-            "dmlkZXISJAoNSGFuZGxlTWVzc2FnZRIILlJlcXVlc3QaCS5SZXNwb25zZUIW",
-            "qgITR3JwY1Byb3ZpZGVyLlByb3Rvc2IGcHJvdG8z"));
+            "ChFQcm90b3MvZ3JwYy5wcm90byJSCgdSZXF1ZXN0EhMKC1NlcnZpY2VOYW1l",
+            "GAEgASgJEhUKDUZ1bGxDbGFzc05hbWUYAiABKAkSDQoFRnVuY3QYAyABKAkS",
+            "DAoERGF0YRgEIAEoCSIoCghSZXNwb25zZRIOCgZTdGF0dXMYASABKAkSDAoE",
+            "RGF0YRgCIAEoCTI0CgxHcnBjUHJvdmlkZXISJAoNSGFuZGxlTWVzc2FnZRII",
+            "LlJlcXVlc3QaCS5SZXNwb25zZUIWqgITR3JwY1Byb3ZpZGVyLlByb3Rvc2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcProvider.Protos.Request), global::GrpcProvider.Protos.Request.Parser, new[]{ "FullClassName", "Funct", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcProvider.Protos.Request), global::GrpcProvider.Protos.Request.Parser, new[]{ "ServiceName", "FullClassName", "Funct", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcProvider.Protos.Response), global::GrpcProvider.Protos.Response.Parser, new[]{ "Status", "Data" }, null, null, null, null)
           }));
     }
@@ -74,6 +75,7 @@ namespace GrpcProvider.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Request(Request other) : this() {
+      serviceName_ = other.serviceName_;
       fullClassName_ = other.fullClassName_;
       funct_ = other.funct_;
       data_ = other.data_;
@@ -86,8 +88,20 @@ namespace GrpcProvider.Protos {
       return new Request(this);
     }
 
+    /// <summary>Field number for the "ServiceName" field.</summary>
+    public const int ServiceNameFieldNumber = 1;
+    private string serviceName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ServiceName {
+      get { return serviceName_; }
+      set {
+        serviceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "FullClassName" field.</summary>
-    public const int FullClassNameFieldNumber = 1;
+    public const int FullClassNameFieldNumber = 2;
     private string fullClassName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -99,7 +113,7 @@ namespace GrpcProvider.Protos {
     }
 
     /// <summary>Field number for the "Funct" field.</summary>
-    public const int FunctFieldNumber = 2;
+    public const int FunctFieldNumber = 3;
     private string funct_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -111,7 +125,7 @@ namespace GrpcProvider.Protos {
     }
 
     /// <summary>Field number for the "Data" field.</summary>
-    public const int DataFieldNumber = 3;
+    public const int DataFieldNumber = 4;
     private string data_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -137,6 +151,7 @@ namespace GrpcProvider.Protos {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ServiceName != other.ServiceName) return false;
       if (FullClassName != other.FullClassName) return false;
       if (Funct != other.Funct) return false;
       if (Data != other.Data) return false;
@@ -147,6 +162,7 @@ namespace GrpcProvider.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (ServiceName.Length != 0) hash ^= ServiceName.GetHashCode();
       if (FullClassName.Length != 0) hash ^= FullClassName.GetHashCode();
       if (Funct.Length != 0) hash ^= Funct.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
@@ -168,16 +184,20 @@ namespace GrpcProvider.Protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (FullClassName.Length != 0) {
+      if (ServiceName.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(ServiceName);
+      }
+      if (FullClassName.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(FullClassName);
       }
       if (Funct.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Funct);
       }
       if (Data.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Data);
       }
       if (_unknownFields != null) {
@@ -190,16 +210,20 @@ namespace GrpcProvider.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (FullClassName.Length != 0) {
+      if (ServiceName.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(ServiceName);
+      }
+      if (FullClassName.Length != 0) {
+        output.WriteRawTag(18);
         output.WriteString(FullClassName);
       }
       if (Funct.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Funct);
       }
       if (Data.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteString(Data);
       }
       if (_unknownFields != null) {
@@ -212,6 +236,9 @@ namespace GrpcProvider.Protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (ServiceName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServiceName);
+      }
       if (FullClassName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FullClassName);
       }
@@ -232,6 +259,9 @@ namespace GrpcProvider.Protos {
     public void MergeFrom(Request other) {
       if (other == null) {
         return;
+      }
+      if (other.ServiceName.Length != 0) {
+        ServiceName = other.ServiceName;
       }
       if (other.FullClassName.Length != 0) {
         FullClassName = other.FullClassName;
@@ -258,14 +288,18 @@ namespace GrpcProvider.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            FullClassName = input.ReadString();
+            ServiceName = input.ReadString();
             break;
           }
           case 18: {
-            Funct = input.ReadString();
+            FullClassName = input.ReadString();
             break;
           }
           case 26: {
+            Funct = input.ReadString();
+            break;
+          }
+          case 34: {
             Data = input.ReadString();
             break;
           }
@@ -285,14 +319,18 @@ namespace GrpcProvider.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            FullClassName = input.ReadString();
+            ServiceName = input.ReadString();
             break;
           }
           case 18: {
-            Funct = input.ReadString();
+            FullClassName = input.ReadString();
             break;
           }
           case 26: {
+            Funct = input.ReadString();
+            break;
+          }
+          case 34: {
             Data = input.ReadString();
             break;
           }

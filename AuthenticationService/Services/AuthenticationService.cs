@@ -35,6 +35,7 @@ namespace AuthenticationService.Services
 
             var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
             {
+                ServiceName="UserService",
                 FullClassName = "UserService.Services.UserService",
                 Funct = "FindUserByUserCreateModel",
                 Data = JsonConvert.SerializeObject(userCreateModel)
@@ -49,6 +50,7 @@ namespace AuthenticationService.Services
             UserRefreshTokenDTO userTokenModel = new UserRefreshTokenDTO { UserID = userID, RefreshToken = JwtAuthentication.GenerateRefreshToken() };
             _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
             {
+                ServiceName = "UserService",
                 FullClassName = "UserService.Services.UserService",
                 Funct = "SaveRefreshToken",
                 Data = JsonConvert.SerializeObject(userTokenModel)
@@ -60,6 +62,7 @@ namespace AuthenticationService.Services
         {
             var result = await _grpcClient.HandleMessageAsync(new GrpcProvider.Protos.Request
             {
+                ServiceName = "UserService",
                 FullClassName = "UserService.Services.UserService",
                 Funct = "GetRefreshToken",
                 Data = JsonConvert.SerializeObject(userID)
