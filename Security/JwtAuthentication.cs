@@ -37,6 +37,10 @@ namespace Security
                     OnMessageReceived = context =>
                     {
                         var token = context.Request.Cookies["accessToken"];
+                        if (token == null)
+                        {
+                            token = context.Request.Headers["Authorization"].ToString().TrimStart("Bearer".ToCharArray()).Trim();
+                        }
                         if (!string.IsNullOrEmpty(token))
                         {
                             var jwtToken = handler.ReadJwtToken(token);
@@ -46,13 +50,13 @@ namespace Security
 
                             var expUnix = long.Parse(expClaim);
                             var expDateTime = DateTimeOffset.FromUnixTimeSeconds(expUnix).UtcDateTime;
-                            if (DateTime.UtcNow > expDateTime)
-                            {
-                                context.Response.StatusCode = 401;
-                                context.Response.ContentType = "application/json";
-                                var result = JsonSerializer.Serialize(new { message = "Token has expired" });
-                                return context.Response.WriteAsync(result);
-                            }
+                           if (DateTime.UtcNow > expDateTime)
+                           {
+                               context.Response.StatusCode = 401;
+                               context.Response.ContentType = "application/json";
+                               var result = JsonSerializer.Serialize(new { message = "Token has expired" });
+                               return context.Response.WriteAsync(result);
+                           }
                             context.Token = token;
                         }
                         return Task.CompletedTask;

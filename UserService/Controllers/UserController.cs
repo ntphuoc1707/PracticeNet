@@ -24,6 +24,7 @@ namespace UserService.Controllers
             _userService=new Services.UserService(userServicePublisher);
         }
 
+        [AllowAnonymous]
         [HttpPost(Name = "AddUser")]
         public ActionResult AddUser(UserLoginDTO userCreateModel)
         {

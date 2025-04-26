@@ -258,3 +258,5 @@ G:\workbench\PracticeNet\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\l
 G:\workbench\PracticeNet\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 G:\workbench\PracticeNet\PracticeNet\UserService\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll
 G:\workbench\PracticeNet\PracticeNet\UserService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+G:\workbench\PracticeNet\PracticeNet\UserService\bin\Debug\net8.0\Security.dll
+G:\workbench\PracticeNet\PracticeNet\UserService\bin\Debug\net8.0\Security.pdb

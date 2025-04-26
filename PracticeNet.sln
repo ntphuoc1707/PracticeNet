@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogService", "LogService\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\ChatService.csproj", "{8D8AD8E2-6977-4E64-8D4A-30FDA41EA18D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbProvider", "MongoDbProvider\MongoDbProvider.csproj", "{34625231-0309-41F9-9F65-CB521CC9E641}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{8D8AD8E2-6977-4E64-8D4A-30FDA41EA18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D8AD8E2-6977-4E64-8D4A-30FDA41EA18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D8AD8E2-6977-4E64-8D4A-30FDA41EA18D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34625231-0309-41F9-9F65-CB521CC9E641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34625231-0309-41F9-9F65-CB521CC9E641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34625231-0309-41F9-9F65-CB521CC9E641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34625231-0309-41F9-9F65-CB521CC9E641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

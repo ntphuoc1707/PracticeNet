@@ -1,0 +1,13 @@
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\bin\Debug\net8.0\MongoDbProvider.deps.json
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\bin\Debug\net8.0\MongoDbProvider.dll
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\bin\Debug\net8.0\MongoDbProvider.pdb
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.csproj.AssemblyReference.cache
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.GeneratedMSBuildEditorConfig.editorconfig
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.AssemblyInfoInputs.cache
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.AssemblyInfo.cs
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.csproj.CoreCompileInputs.cache
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.sourcelink.json
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.dll
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\refint\MongoDbProvider.dll
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\MongoDbProvider.pdb
+G:\workbench\PracticeNet\PracticeNet\MongoDbProvider\obj\Debug\net8.0\ref\MongoDbProvider.dll

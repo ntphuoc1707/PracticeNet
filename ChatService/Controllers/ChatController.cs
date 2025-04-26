@@ -15,11 +15,17 @@ public class ChatController : Controller
         _chatService = chatService;
     }
 
-    [AllowAnonymous]
     [HttpPost(Name = "StartConversation")]
     public async Task<ActionResult> StartConversation(StartConversationRequestDTO startConversationRequest)
     {
         var result = await _chatService.StartConversation(startConversationRequest);
-        return Ok(new {GroupId= result.ToString()});
+        return Ok(new { GroupId = result.ToString() });
+    }
+
+    [HttpGet(Name = "GetChatHistory")]
+    public async Task<ActionResult> GetChatHistory(string groupId)
+    {
+        var result = await _chatService.GetHistoryAsync(groupId);
+        return Ok(new { data = result });
     }
 }
