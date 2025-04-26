@@ -1,2 +1,0 @@
-obj\Release\net8.0\Protos/Grpc.cs \
-obj\Release\net8.0\Protos/GrpcGrpc.cs: Protos/grpc.proto
